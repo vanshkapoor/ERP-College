@@ -7,21 +7,9 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
-	color:#3d4548e0;
+	color:#3d4f55;
 }
-.btn-info
-{
-	
-	background-color:#6d868d;
-	border-color:#6d868d;
-	
-}
-.btn-info:hover,.btn-info:focus,.btn-info:active{
-	
-	background-color:#6d868d;
-	border-color:#6d868d;
-	
-}
+
 img{
     display: block;
     margin-left: auto;
@@ -30,6 +18,11 @@ img{
     height: 120px;
     border-radius: 50%;
 }
+.btn-info {
+    color: #fff;
+    background-color: #65777d;
+    border-color: white;
+}
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -37,6 +30,24 @@ p {
     font-weight: 300;
     line-height: 1.7em;
     color: #999;
+}
+.btn-group-vertical>.btn, .btn-group-vertical>.btn-group, .btn-group-vertical>.btn-group>.btn {
+    display: block;
+    float: none;
+    width: 100%;
+    min-width: 132%;
+	background-color: #0d9494;
+    border-color: #0d9494;
+}
+button.btn :focus {
+    color: white;
+    background-color: white !important;
+    border-color: white;
+	box-shadow:white;
+}
+.btn{
+	font-size: 20px;
+	
 }
 
 a, a:hover, a:focus {
@@ -89,34 +100,11 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background:#0d9494;
+    background: #0d9494
+	margin-bottom:20px;
 }
 
-#sidebar ul.components {
-    padding: 20px 0;
-	
-    border-bottom: 1px solid #63abab;
-}
 
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-#sidebar ul li a:hover {
-    color: grey;
-    background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #0d9494;
-}
 
 
 a[data-toggle="collapse"] {

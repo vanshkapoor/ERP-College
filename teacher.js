@@ -6,6 +6,7 @@ function tprofile()
         document.getElementById("2").style.display = "none";
 		document.getElementById("3").style.display = "none";
 		document.getElementById("4").style.display = "none";
+		
 }
 function tattendence()
 {

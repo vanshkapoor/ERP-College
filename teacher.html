@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<script src="teacher.js"></script>
         <title>Teacher</title>
 
          <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
-        <link rel="stylesheet" href="tstyle.css">
+        <link rel="stylesheet" href="teacherstyle.css">
     </head>
     <body>
 
@@ -23,30 +23,15 @@
                     <img src="images/u8.jfif">
 					
                 </div>
-
-                <ul class="list-unstyled components">
-                    <li class="active">
-                        <a href="teacher.html">Profile</a>
-                        
-                    </li>
-                    <li>
-                        <a href="tassignment.html">Add Assignments</a>
-                        
-                    </li>
-                    <li>
-                        <a href="tattendence.html">Add Attendence</a>
-                        
-                        
-                    </li>
-					 <li>
-                        <a href="tresult.html">Add Result</a>
-                    </li>
-                   
-                    <li>
-                        <a href="landing.html">Logout</a>
-                    </li>
-                </ul>
-
+			
+               <div class="btn-group-vertical">
+  <button type="button"  class="btn btn-outline-secondary" aria-pressed="true" onclick="tprofile()">Profile</button>
+  <button type="button" class="btn btn-outline-secondary" onclick="tattendence()">Add Attendence</button>
+  <button type="button" class="btn btn-outline-secondary" onclick="tassignment()">Add Assignment</button>
+  <button type="button" class="btn btn-outline-secondary" onclick="tresult()">Add Result</button>
+  <button type="button" class="btn btn-outline-secondary" ">Logout</button>
+</div>
+<hr>
                
             </nav>
 
@@ -57,7 +42,7 @@
                     <div class="container-fluid">
 
                         <div class="navbar-header">
-                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                            <button type="button" id="sidebarCollapse" class="btn btn-secondary navbar-btn">
                                 <i class="glyphicon glyphicon-align-left"></i>
                                 <span></span>
                             </button>
@@ -71,7 +56,8 @@
                         </div>
                     </div>
                 </nav>
- <div class="col-xs-12" style="background-color:#0d9494; color:#fff; ">
+				
+				<div class="col-xs-12" id="1" style="background-color:#0d9494; color:#fff; display:inline-block; ">
                 <h3 style="color:#fff;"><b>My Profile</b></h2>
                 <table class="table table-borderless">
 				<tr>
@@ -94,6 +80,49 @@
                 </table>	
 			
               </div>
+   <div class="col-xs-12" id="2" style="background-color:#0d9494; text-align:center;display:none;"> 
+		 <h3 style="color:#fff; text-align:center;"><b> Add Attendence <b></h3><br>
+		 <form>
+		 <div class="form-group">
+		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
+		 <input type="text" class="form-control" id="assyear" placeholder="Year"><br>
+		 <input type="text" class="form-control" id="assbranch" placeholder="Branch"><br>
+		 <input type="file" class="form-control-file" id="FormControlFile1"><br>
+		 <button type="submit" class="btn btn-light">Submit</button><br>
+		 </form>
+</div>      
+                
+			
+  </div>
+  <div class="col-xs-12" id="3" style="background-color:#0d9494; text-align:center; display:none;">
+		 <h3 style="color:#fff; text-align:center;"><b> Add Assignment <b></h3><br>
+		 <form>
+		 <div class="form-group">
+		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
+		 <input type="text" class="form-control" id="assyear" placeholder="Year"><br>
+		 <input type="text" class="form-control" id="assbranch" placeholder="Branch"><br>
+		 <input type="file" class="form-control-file" id="FormControlFile1"><br>
+		 <button type="submit" class="btn btn-light">Submit</button><br>
+		 </form>
+</div>      
+                
+			
+  </div>
+  <div class="col-xs-12" id="4" style="background-color:#0d9494; text-align:center; display:none;">
+		 <h3 style="color:#fff; text-align:center;"><b> Add Result<b></h3><br>
+		 <form>
+		 <div class="form-group">
+		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
+		 <input type="text" class="form-control" id="assyear" placeholder="Year"><br>
+		 <input type="text" class="form-control" id="assbranch" placeholder="Branch"><br>
+		 <input type="file" class="form-control-file" id="FormControlFile1"><br>
+		 <button type="submit" class="btn btn-light">Submit</button><br>
+		 </form>
+</div>      
+                
+			
+  </div>
+  
                  
 
 
