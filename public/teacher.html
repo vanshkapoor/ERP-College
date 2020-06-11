@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="teacherstyle.css">
+		<script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/driver.js/dist/driver.min.css">
     </head>
     <body>
 
@@ -25,11 +27,11 @@
                 </div>
 			
                <div class="btn-group-vertical">
-  <button type="button"  class="btn btn-outline-secondary" aria-pressed="true" onclick="tprofile()">Profile</button>
-  <button type="button" class="btn btn-outline-secondary" onclick="tattendence()">Add Attendence</button>
-  <button type="button" class="btn btn-outline-secondary" onclick="tassignment()">Add Assignment</button>
-  <button type="button" class="btn btn-outline-secondary" onclick="tresult()">Add Result</button>
-  <button type="button" class="btn btn-outline-secondary">Logout</button>
+  <button type="button"  class="btn btn-outline-secondary" id="first" aria-pressed="true" onclick="tprofile()">Profile</button>
+  <button type="button" class="btn btn-outline-secondary" id="second"onclick="tattendence()">Add Attendence</button>
+  <button type="button" class="btn btn-outline-secondary" id="third" onclick="tassignment()">Add Assignment</button>
+  <button type="button" class="btn btn-outline-secondary" id="fourth" onclick="tresult()">Add Result</button>
+  <button type="button" class="btn btn-outline-secondary" id="fifth">Logout</button>
 </div>
 <hr>
                
@@ -80,8 +82,8 @@
                 </table>	
 			
               </div>
-   <div class="col-xs-12" id="2" style="background-color:#a63650; text-align:center;display:none;"> 
-		 <h3 style="color:#fff; text-align:center;"><b> Add Attendence <b></h3><br>
+   <div class="col-xs-12" id="2" style="background-color:#fff; text-align:center;display:none;"> 
+		 <h3 style="color:grey; text-align:center;"><b> Add Attendence <b></h3><br>
 		 <form>
 		 <div class="form-group">
 		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
@@ -94,8 +96,8 @@
                 
 			
   </div>
-  <div class="col-xs-12" id="3" style="background-color:#a63650; text-align:center; display:none;">
-		 <h3 style="color:#fff; text-align:center;"><b> Add Assignment <b></h3><br>
+  <div class="col-xs-12" id="3" style="background-color:#fff text-align:center; display:none;">
+		 <h3 style="color:grey; text-align:center;"><b> Add Assignment <b></h3><br>
 		 <form>
 		 <div class="form-group">
 		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
@@ -108,8 +110,8 @@
                 
 			
   </div>
-  <div class="col-xs-12" id="4" style="background-color:#a63650; text-align:center; display:none;">
-		 <h3 style="color:#fff; text-align:center;"><b> Add Result<b></h3><br>
+  <div class="col-xs-12" id="4" style="background-color:#fff; text-align:center; display:none;">
+		 <h3 style="color:grey; text-align:center;"><b> Add Result<b></h3><br>
 		 <form>
 		 <div class="form-group">
 		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
@@ -146,5 +148,65 @@
                  });
              });
          </script>
+		 <script>
+        const driver = new Driver();
+
+
+driver.defineSteps([
+  { 
+  
+  
+    element: '#first',
+    popover: {
+      className: 'first-step-popover-class',
+      title: 'Click this to view profile',
+      description: 'You can view your profile here',
+      position: 'right'
+    }
+  },
+  {
+    element: '#sidebarCollapse',
+    popover: {
+      title: 'Click this to toggle the sidebar ',
+      position: 'right'
+    }
+  },
+  {
+    element: '#second',
+    popover: {
+      title: 'Click this to upload the attendence',
+	   description: 'You can upload attendence only in PDF format',
+      position: 'right'
+    }
+  },
+  {
+    element: '#third',
+    popover: {
+      title: 'Click this to upload the assignment ',
+	   description: 'You can upload assignment only in PDF format',
+      position: 'right'
+    }
+  },
+  {
+    element: '#fourth',
+    popover: {
+      title: 'Click this to upload the result pdf  ',
+	   description: 'You can upload result only in PDF format',
+      position: 'right'
+    }
+  },
+  {
+    element: '#fifth',
+    popover: {
+      title: 'Click this to logout ',
+    
+      position: 'right'
+    }
+  },
+]);
+
+
+driver.start();
+</script>
     </body>
 </html>

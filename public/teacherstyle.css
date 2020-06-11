@@ -10,7 +10,12 @@ body {
 	color:#3d4f55;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
+.col-xs-12
+{
+ border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #a63650;
+}
 img{
     display: block;
     margin-left: auto;
@@ -36,7 +41,7 @@ p {
     display: block;
     float: none;
     width: 100%;
-    min-width: 132%;
+    min-width: 146%;
 	background-color:#a63650;
     border-color: #a63650;
 }
