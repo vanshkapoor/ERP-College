@@ -5,6 +5,7 @@ const LocalStrategy = require('passport-local').Strategy
 const session = require('express-session')
 
 var User = require('./models/user')
+var Assignment = require('./models/assignment')
 
 app.use(express.urlencoded({extended:true}))
 
@@ -106,8 +107,47 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/signup.html'
 }))
 
+// ASSIGNMENT POST ROUTE
+// route : /assignment
+app.post('/assignment' , (req,res)=>{
+  var department1 = req.body.department;
+  var year = req.body.year;
+  var branch = req.body.branch;
+  var ques1 = req.body.ques1;
+  var ques2 = req.body.ques2;
 
-app.listen(3051,()=>{
-    console.log("Listening on 3051")
+  let obj={};
+  obj.department = department1,
+  obj.year = year,
+  obj.branch = branch,
+  obj.ques1 = ques1,
+  obj.ques2 = ques2
+
+  console.log(obj);
+
+  new Assignment(obj).save().then(data =>{
+    console.log(data);
+    // res.json({message:"success"});
+  }).catch(error=>{
+    console.log("error")
+    // return res.json({message:"error"})
+  })
+
 })
+
+app.listen(6969,()=>{
+    console.log("Listening on 6969")
+})
+/*
+  CREATE  :Done
+  READ :
+  UPDATE
+  DELETE
+
+*/
+
+/*
+  read : find
+*/
+
 

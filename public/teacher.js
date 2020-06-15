@@ -36,3 +36,4 @@ function tresult()
 		document.getElementById("3").style.display = "none";
 		document.getElementById("4").style.display = "block";
 }
+
