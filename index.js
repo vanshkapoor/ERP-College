@@ -192,14 +192,14 @@ app.post('/loginFaculty', passport.authenticate('faculty-local', {
 // ASSIGNMENT POST ROUTE
 // route : /assignment
 app.post('/assignment' , (req,res)=>{
-  var department1 = req.body.department;
+  var department = req.body.department;
   var year = req.body.year;
   var branch = req.body.branch;
   var ques1 = req.body.ques1;
   var ques2 = req.body.ques2;
 
   let obj={};
-  obj.department = department1,
+  obj.department = department,
   obj.year = year,
   obj.branch = branch,
   obj.ques1 = ques1,
