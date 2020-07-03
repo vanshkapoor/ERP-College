@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<script src="../public/teacher.js"></script>
+<script src="js/teacher.js"></script>
         <title>Teacher</title>
 
          <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
-        <link rel="stylesheet" href="../public/teacherstyle.css">
+        <link rel="stylesheet" href="css/teacherstyle.css">
     </head>
     <body>
 
@@ -52,12 +52,11 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     {{#if user}}
-                                    <p>Hello {{user.username}}</p>
+                                    <p style="color: white">Hello {{user.username}}</p>
                                     {{else}}
-                                    <p>Please <a href='../public/loginFac.html'>Log In </a></p>
+                                    <p style="color: white">Please <a href='public/loginFac.html'>Log In </a></p>
                                     {{/if}}
-                                </li>
-                                <!--<li><a href="#">Hello!</a></li>-->
+                                </li>                               
                               
                             </ul>
                         </div>

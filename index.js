@@ -20,7 +20,8 @@ db.once('open', function(callback){
 
 
 app.set('view engine','hbs')
-app.use(express.static(__dirname + '/public'))
+app.use(express.static('public'));
+//app.use(express.static(__dirname + '/public'))
 
 app.get('/',(req,res)=>{
     res.render('landing')
@@ -184,10 +185,19 @@ app.post('/login', passport.authenticate('user-local', {
 
 
 app.post('/loginFaculty', passport.authenticate('faculty-local', {
-  successRedirect: '/teacher.html',
-  failureRedirect: '/signupFaculty.html'
-}))
+  successRedirect: '/facProfile',
+  failureRedirect: '/signupFaculty.html'}),
 
+  function(req,res) {
+    res.redirect('/facProfile')
+  }
+)
+
+app.get('/facProfile', (req,res)=>{
+  res.render('teacher', 
+  { syle: 'teacherstyle.css',
+    user: req.user });
+})
 
 // ASSIGNMENT POST ROUTE
 // route : /assignment
