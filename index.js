@@ -35,6 +35,7 @@ app.post('/signupStudent', (req, res) => {
   var password = req.body.password;
   var name = req.body.name;
   var phone = req.body.phone;
+ 
 
   {
     User.findOne({ username: username })
@@ -49,7 +50,6 @@ app.post('/signupStudent', (req, res) => {
             email: email,
             password: password,
             name: name,
-
             phone: phone
           })
           newUser.save(function (err, user) {
@@ -178,10 +178,10 @@ passport.deserializeUser(function (id, done) {
 })
 
 
-app.post('/login', passport.authenticate('user-local', {
+/*app.post('/login', passport.authenticate('user-local', {
   successRedirect: '/student.html',
   failureRedirect: '/signupStudent.html'
-}))
+}))*/
 
 
 app.post('/loginFaculty', passport.authenticate('faculty-local', {
@@ -195,7 +195,23 @@ app.post('/loginFaculty', passport.authenticate('faculty-local', {
 
 app.get('/facProfile', (req,res)=>{
   res.render('teacher', 
-  { syle: 'teacherstyle.css',
+  { style: 'teacherstyle.css',
+    user: req.user });
+})
+
+
+app.post('/login', passport.authenticate('user-local', {
+  successRedirect: '/stuProfile',
+  failureRedirect: '/signupStudent.html'}),
+
+  function(req,res) {
+    res.redirect('/stuProfile')
+  }
+)
+
+app.get('/stuProfile', (req,res)=>{
+  res.render('student', 
+  { style: 'studentstyle.css',
     user: req.user });
 })
 
