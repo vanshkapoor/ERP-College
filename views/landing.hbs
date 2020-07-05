@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="./landing.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+  $("#reg").click(function(){
+    $("#myModal").modal({backdrop: "static"});
+  
+});
+  </script>
+	
 </head>
 <body>
     <!--------------------------- navbar --------------------->
@@ -40,7 +51,30 @@
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0"> -->
         <a href="loginFac.html"><button class="btn btn-outline-info my-2 my-sm-0 mr-sm-2" type="submit" > Login</button></a>
-        <a href="signupFaculty.html"> <button class="btn btn-info my-2 my-sm-0 mr-sm-2" type="submit">Register</button></a>
+        <button class="btn btn-info my-2 my-sm-0 mr-sm-2" type="submit" id="reg" data-toggle="modal" data-target="#myModal">Register</button>
+	<div class="modal" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" style="margin-top:230px; ">
+    <div class="modal-dialog" style="text-align:center;">
+      <div class="modal-content" style=" height:200px;">
+      
+        <!-- Modal Header -->
+        <div class="modal-header text-center d-block" style=" border-bottom:none;">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button><br>
+         <h2> Register as </h2>
+        
+        </div>
+        
+        
+        
+        <!-- Modal footer -->
+        <div class="modal-footer text-center d-block" style="border-top: 1px solid white;">
+        <a href="signupStudent.html">  <button type="button" class="btn btn-info" >Student</button></a>
+		 <a href="signupFaculty.html"> <button type="button" class="btn btn-danger" data-dismiss="modal">Faculty</button></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
 
     <!-- </form> -->
   </div>
@@ -55,7 +89,7 @@
         <div class="row">
             <div class="col-md-4 col-xs-12 my-col">
                 <h1 class="erp">ERP System for College Management</h1>
-                <p class="p1"><i>-Redifining the management system</i></p> <br>
+                <p class="p1"><i>-Redefining the management system</i></p> <br>
                 <!-- <button type="button" class="btn btn-light">Light</button> -->
                <a href="login.html"><button class="btn btn-danger my-btn btnm"  data-toggle="modal" data-target="#exampleModal" type="submit" >Login</button></a> 
               <a href="signupStudent.html"><button class="btn btn-light my-btn btnm"  data-toggle="modal" data-target="#exampleModal" type="submit" >Register</button></a> 
