@@ -13,10 +13,10 @@ var AssignmentSchema = mongoose.Schema({
         type: String, //eve/morning
         required:true
     },
-    question1:{
+    ques1:{
         type: String,  
     },
-    question2:{
+    ques2:{
         type: String,
     }
 })

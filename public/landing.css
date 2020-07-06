@@ -271,3 +271,46 @@ html{
   font-size: 14px;
   color: #878787;
 }
+.modal-backdrop {
+    display:none;
+}
+.no-border{
+  border:none;
+}
+.modal-content{
+	height:110%;
+}
+
+.modal-header {
+    border-bottom: 0 none;
+}
+ 
+.modal-dialog
+{
+  text-align: center-justify;
+  align:center;
+margin-top:center;  
+            vertical-align: middle; 
+}
+
+
+.modal-footer {
+    border-top: 0 none;
+	border-top: 1px solid white;
+}
+.modal-header
+{
+	border-bottom:none;
+	
+border-bottom:none;
+    border-bottom-width: none;
+    border-bottom-style:none;
+    border-bottom-color: none;
+}
+body.modal-open .row{
+    -webkit-filter: blur(3.5px);
+    -moz-filter: blur(3.5px);
+    -o-filter: blur(3.5px);
+    -ms-filter: blur(3.5px);
+    filter: blur(3.5px);
+}
