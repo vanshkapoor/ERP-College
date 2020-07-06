@@ -199,6 +199,28 @@ app.get('/facProfile', (req,res)=>{
     user: req.user });
 })
 
+app.get("/assignments", (req,res) => {
+  Assignment.find({}).then(data =>{
+    console.log(data);
+    res.render('teacher', {syle: 'teacherstyle.css',assignment:data});
+  }).catch(err => {
+    console.log(err);
+    // render error file
+  })
+})
+
+// app.get("/attendance", (req,res) => {
+//   Attendance.find({}).then(data =>{
+//     console.log(data);
+//     ress.render('teacher', {syle: 'teacherstyle.css',attendance:data});
+//   }).catch(err => {
+//     console.log(err);
+//     // render error file
+//   })
+// })
+
+
+
 // ASSIGNMENT POST ROUTE
 // route : /assignment
 app.post('/assignment' , (req,res)=>{
@@ -227,7 +249,7 @@ app.post('/assignment' , (req,res)=>{
 
 })
 
-app.listen(6969,()=>{
+app.listen(6963,()=>{
     console.log("Listening on 6969")
 })
 /*

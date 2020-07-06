@@ -91,7 +91,7 @@
                 </tr>
 				<tr>
                  <td> ID</td>
-                 <td> 001</td>
+                 <td> 0221</td>
                 </tr>
                 <tr>
                  <td> Department</td>
@@ -101,7 +101,7 @@
                  <td> Email id</td>
                  <td> abcabc@gmail.com</td>
                  </tr>
-                 {{/if}}
+                {{/if}}
 
 
 
@@ -136,6 +136,19 @@
          
 		 <button type="submit" class="btn btn-light">Submit</button><br>
 		 </form>
+        
+   		 <button type="submit" class="btn btn-light">View Assignment</button><br>
+
+         <div>
+            {{#if assignment}}
+            <p>branch : {{assignment.branch}}</p>
+             <p>Questions1 :{{assignment.ques1}} </p>
+             <p>Question2: {{assignment.ques2}}</p>
+             {{else}}
+             <p>Please log in again</p>
+             {{/if}}
+
+         </div>
 </div>      
                 
 			
