@@ -29,7 +29,9 @@
   <button type="button" class="btn btn-outline-secondary" onclick="tattendence()">View Attendence</button>
   <button type="button" class="btn btn-outline-secondary" onclick="tassignment()">View Assignment</button>
   <button type="button" class="btn btn-outline-secondary" onclick="tresult()">View Result</button>
-  <button type="button" class="btn btn-outline-secondary">Logout</button>
+  <a href="/login.html" class="btn btn-outline-secondary">
+    Logout
+    </a>
 </div>
 <hr>
                
@@ -50,7 +52,13 @@
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li style="color:#fff;"><a href="#">Hello!</a></li>
+                                <li>
+                                 {{#if user}}
+                                    <p style="color: white">Hello {{user.username}}</p>
+                                    {{else}}
+                                    <p style="color: white">Please <a href='/login.html'>Log In </a></p>
+                                    {{/if}}
+                                </li>
                               
                             </ul>
                         </div>
@@ -60,6 +68,25 @@
 				<div class="col-xs-12" id="1" style="background-color:#fff; color:grey; display:inline-block; ">
                 <h3 style="color:grey;"><b>My Profile</b></h2>
                 <table class="table table-borderless">
+                    {{#if user}}
+                <tr>
+				<td> Name</td>
+                 <td> {{user.username}}</td>
+                </tr>
+				<tr>
+                 <td> ID</td>
+                 <td> {{user.enrollment_no}}</td>
+                </tr>
+                <tr>
+                 <td> Department</td>
+                 <td> Computer Science</td>
+                 </tr>
+				 <tr>
+                 <td> Email id</td>
+                 <td> {{user.email}}</td>
+                 </tr>
+
+                 {{else}}
 				<tr>
 				<td> Name</td>
                  <td> ABC</td>
@@ -76,7 +103,7 @@
                  <td> Email id</td>
                  <td> abcabc@gmail.com</td>
                  </tr>
-
+                 {{/if}}
                 </table>	
 			
               </div>
