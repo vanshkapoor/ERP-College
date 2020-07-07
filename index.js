@@ -265,8 +265,8 @@ app.post('/assignment' , (req,res)=>{
 
 })
 
-app.listen(6963,()=>{
-    console.log("Listening on 6969")
+app.listen(3010,()=>{
+    console.log("Listening on 3010")
 })
 /*
   CREATE  :Done
