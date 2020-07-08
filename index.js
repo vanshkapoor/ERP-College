@@ -11,7 +11,9 @@ var Assignment = require('./models/assignment')
 app.use(express.urlencoded({extended:true}))
 
 const mongoose = require('mongoose');  
-mongoose.connect('mongodb://localhost:27017/loginapp',{ useNewUrlParser: true }); 
+mongoose.connect('mongodb://localhost:27017/loginapp',{ 
+  useNewUrlParser: true,
+  useUnifiedTopology: true }); 
 var db=mongoose.connection; 
 db.on('error', console.log.bind(console, "connection error")); 
 db.once('open', function(callback){ 
@@ -215,7 +217,7 @@ app.get('/stuProfile', (req,res)=>{
     user: req.user });
 })
 
-app.get("/assignments", (req,res) => {
+/*app.get("/assignments", (req,res) => {
   Assignment.find({}).then(data =>{
     console.log(data);
     res.render('teacher', {syle: 'teacherstyle.css',assignment:data});
@@ -223,7 +225,7 @@ app.get("/assignments", (req,res) => {
     console.log(err);
     // render error file
   })
-})
+})*/
 
 // app.get("/attendance", (req,res) => {
 //   Attendance.find({}).then(data =>{
@@ -258,6 +260,7 @@ app.post('/assignment' , (req,res)=>{
   new Assignment(obj).save().then(data =>{
     console.log(data);
     // res.json({message:"success"});
+    res.redirect('/assignSuccess')
   }).catch(error=>{
     console.log("error")
     // return res.json({message:"error"})
@@ -265,19 +268,20 @@ app.post('/assignment' , (req,res)=>{
 
 })
 
+app.get('/assignSuccess',(req,res)=> {
+  Assignment.find(function(err, assignment) {
+    res.render('assignment',{
+      assignments: assignment
+    })
+  })  
+})
+
+
 app.listen(3010,()=>{
     console.log("Listening on 3010")
 })
-/*
-  CREATE  :Done
-  READ :
-  UPDATE
-  DELETE
 
-*/
 
-/*
-  read : find
-*/
+
 
 
