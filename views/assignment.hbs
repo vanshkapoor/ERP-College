@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment</title>
+</head>
+<body>
+    <h1>Success</h1>
+    <br />
+    {{#each assignments}}
+    <p>Department: {{this.department}}</p>
+    <br>
+    <p> Year: {{this.year}}</p>
+    <br>
+    <p>Branch: {{this.branch}}</p>
+    <br>
+    <p>Question 1: {{this.ques1}}</p> <br>
+    <p>Question 2: {{this.ques2}}</p>
+
+    {{/each}}
+
+
+    {{!--{{#if obj}}
+    Question 1: {{obj.ques1}}
+
+    {{else}}
+    Questions 1: 
+    {{/if}} --}}
+    
+</body>
+</html>
