@@ -70,39 +70,55 @@
                 <table class="table table-borderless">
                     {{#if user}}
                 <tr>
-				<td> Name</td>
-                 <td> {{user.username}}</td>
-                </tr>
-				<tr>
-                 <td> ID</td>
-                 <td> {{user.enrollment_no}}</td>
+                    <td> Name</td>
+                    <td> {{user.username}}</td>
                 </tr>
                 <tr>
-                 <td> Department</td>
-                 <td> Computer Science</td>
-                 </tr>
-				 <tr>
-                 <td> Email id</td>
-                 <td> {{user.email}}</td>
-                 </tr>
+                    <td> Enrollment Number</td>
+                    <td> {{user.rollNo}}</td>
+                </tr>
+                <tr>
+                    <td> Department</td>
+                    <td> Computer Science</td>
+                </tr>
+                <tr>
+                    <td> Email id</td>
+                    <td> {{user.email}}</td>
+                </tr>
+                <tr>
+                    <td> Phone Number</td>
+                    <td> {{user.phone}}</td>
+                </tr>
+                <tr>
+                    <td> Shift</td>
+                    <td> {{user.branch}}</td>
+                </tr>
 
                  {{else}}
-				<tr>
-				<td> Name</td>
-                 <td> ABC</td>
-                </tr>
-				<tr>
-                 <td> Enrollment Number</td>
-                 <td> 001</td>
+                <tr>
+                    <td> Name</td>
+                    <td> ABC</td>
                 </tr>
                 <tr>
-                 <td> Department</td>
-                 <td> Computer Science</td>
-                 </tr>
-				 <tr>
-                 <td> Email id</td>
-                 <td> abcabc@gmail.com</td>
-                 </tr>
+                    <td> Enrollment Number</td>
+                    <td> 001</td>
+                </tr>
+                <tr>
+                    <td> Department</td>
+                    <td> Computer Science</td>
+                </tr>
+                <tr>
+                    <td> Email id</td>
+                    <td> abcabc@gmail.com</td>
+                </tr>
+                <tr>
+                    <td> Phone Number</td>
+                    <td> 0000</td>
+                </tr>
+                <tr>
+                    <td> Shift</td>
+                    <td> Morning</td>
+                </tr>
                  {{/if}}
                 </table>	
 			
