@@ -37,8 +37,8 @@ app.post('/signupStudent', (req, res) => {
   var password = req.body.password;
   var name = req.body.name;
   var phone = req.body.phone;
- 
-
+  var rollNo = req.body.rollNo;
+  var branch = req.body.branch;
   {
     User.findOne({ username: username })
       .then(currentUser => {
@@ -52,7 +52,9 @@ app.post('/signupStudent', (req, res) => {
             email: email,
             password: password,
             name: name,
-            phone: phone
+            phone: phone,
+            rollNo: rollNo,
+            branch: branch 
           })
           newUser.save(function (err, user) {
             if (err) throw err
