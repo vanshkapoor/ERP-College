@@ -6,6 +6,7 @@ var UserSchema = mongoose.Schema({
     username:{
       type: String,     
     },
+    
     password: {
       type: String
     },
@@ -14,13 +15,17 @@ var UserSchema = mongoose.Schema({
     },
     name: {   //Added name
       type: String
-    },
-    
+    },    
     phone: {//Added number
+      type: Number    
+    },
+    rollNo : {
       type: Number
-    
+    },
+    branch: {
+      type: String
     }
-
+   
   })
 
 var User = module.exports = mongoose.model('User',UserSchema)
