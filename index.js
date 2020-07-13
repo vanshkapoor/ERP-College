@@ -243,6 +243,22 @@ app.get('/stuProfile', (req,res)=>{
 
 
 
+
+app.post('/loginFaculty', passport.authenticate('faculty-local', {
+  successRedirect: '/facProfile',
+  failureRedirect: '/signupFaculty.html'}),
+
+  function(req,res) {
+    res.redirect('/facProfile')
+  }
+)
+
+app.get('/facProfile', (req,res)=>{
+  res.render('teacher', 
+  { syle: 'teacherstyle.css',
+    user: req.user });
+})
+
 // ASSIGNMENT POST ROUTE
 // route : /assignment
 app.post('/assignment' , (req,res)=>{
@@ -280,9 +296,39 @@ app.get('/assignSuccess',(req,res)=> {
   })  
 })
 
+// app.get('/stuassign',(req,res)=>{
+//   res.render('stuassign')
+// })
 
-app.listen(3010,()=>{
-    console.log("Listening on 3010")
+app.get('/stuassign',(req,res)=> {
+  Assignment.find(function(err, assignment) {
+    res.render('stuassign',{
+      assignments: assignment
+    })
+  })  
+})
+
+app.get('/stuassign/filter/mor',(req,res) => {
+  Assignment.find({branch:'mor'}).then(assignment => {
+    res.render('stuassign',{
+      assignments:assignment
+    })
+  }).catch(err => {
+    res.send({message:"Error while loading"})
+  })
+})
+
+// app.get('/assignStu',(req,res)=> {
+//   Assignment.find(function(err, assignment) {
+//     res.render('assignment',{
+//       assignments: assignment
+//     })
+//   })  
+// })
+
+
+app.listen(6969,()=>{
+    console.log("Listening on 6969")
 })
 
 

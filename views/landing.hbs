@@ -50,7 +50,29 @@
       
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0"> -->
-        <a href="loginFac.html"><button class="btn btn-outline-info my-2 my-sm-0 mr-sm-2" type="submit" > Login</button></a>
+        <button class="btn btn-outline-info my-2 my-sm-0 mr-sm-2" type="submit" data-toggle="modal" data-target="#myModal1"> Login</button>
+		<div class="modal" id="myModal1" data-keyboard="false" data-backdrop="static" tabindex="-1" style="margin-top:230px; ">
+    <div class="modal-dialog" style="text-align:center;">
+      <div class="modal-content" style=" height:200px;">
+      
+        <!-- Modal Header -->
+        <div class="modal-header text-center d-block" style=" border-bottom:none;">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button><br>
+         <h2> Login as </h2>
+        
+        </div>
+        
+        
+        
+        <!-- Modal footer -->
+        <div class="modal-footer text-center d-block" style="border-top: 1px solid white;">
+        <a href="login.html">  <button type="button" class="btn btn-info" >Student</button></a>
+		 <a href="loginFac.html"> <button type="button" class="btn btn-danger" data-dismiss="modal">Faculty</button></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
         <button class="btn btn-info my-2 my-sm-0 mr-sm-2" type="submit" id="reg" data-toggle="modal" data-target="#myModal">Register</button>
 	<div class="modal" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" style="margin-top:230px; ">
     <div class="modal-dialog" style="text-align:center;">
@@ -91,8 +113,53 @@
                 <h1 class="erp">ERP System for College Management</h1>
                 <p class="p1"><i>-Redefining the management system</i></p> <br>
                 <!-- <button type="button" class="btn btn-light">Light</button> -->
-               <a href="login.html"><button class="btn btn-danger my-btn btnm"  data-toggle="modal" data-target="#exampleModal" type="submit" >Login</button></a> 
-              <a href="signupStudent.html"><button class="btn btn-light my-btn btnm"  data-toggle="modal" data-target="#exampleModal" type="submit" >Register</button></a> 
+               <button class="btn btn-danger my-btn btnm"  type="submit" data-toggle="modal" data-target="#myModal1" >Login</button>
+			   <div class="modal" id="myModal1" data-keyboard="false" data-backdrop="static" tabindex="-1" style="margin-top:230px; ">
+    <div class="modal-dialog" style="text-align:center;">
+      <div class="modal-content" style=" height:200px;">
+      
+        <!-- Modal Header -->
+        <div class="modal-header text-center d-block" style=" border-bottom:none;">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button><br>
+         <h2> Login as </h2>
+        
+        </div>
+        
+        
+        
+        <!-- Modal footer -->
+        <div class="modal-footer text-center d-block" style="border-top: 1px solid white;">
+        <a href="login.html">  <button type="button" class="btn btn-info" >Student</button></a>
+		 <a href="loginFac.html"> <button type="button" class="btn btn-danger" data-dismiss="modal">Faculty</button></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+              <button class="btn btn-light my-btn btnm"  data-toggle="modal" data-target="#myModal" type="submit" >Register</button>
+			  <div class="modal" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" style="margin-top:230px; ">
+    <div class="modal-dialog" style="text-align:center;">
+      <div class="modal-content" style=" height:200px;">
+      
+        <!-- Modal Header -->
+        <div class="modal-header text-center d-block" style=" border-bottom:none;">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button><br>
+         <h2> Register as </h2>
+        
+        </div>
+        
+        
+        
+        <!-- Modal footer -->
+        <div class="modal-footer text-center d-block" style="border-top: 1px solid white;">
+        <a href="signupStudent.html">  <button type="button" class="btn btn-info" >Student</button></a>
+		 <a href="signupFaculty.html"> <button type="button" class="btn btn-danger" data-dismiss="modal">Faculty</button></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
             </div>
             <div class="col-md-8 col-xs-12">
                 <img src="./images/undraw_real-time_sync_o57k.png" alt="" height="700" width="">

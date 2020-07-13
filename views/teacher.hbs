@@ -65,8 +65,8 @@
                     </div>
                 </nav>
 				
-				<div class="col-xs-12" id="1" style="background-color:white; color:grey; display:inline-block; box-shadow:grey;">
-                <h3 style="color:grey;"><b>My Profile</b></h2>
+				<div class="col-xs-12" id="1" style="background-color:white; color:grey; display:inline-block; border: 1px solid;padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c">
+                <h3 style="color:#a63650;"><b>My Profile</b></h2>
                 <table class="table table-borderless">
 				{{#if user}}
                 <tr>
@@ -103,15 +103,19 @@
                  <td> Email id</td>
                  <td> abcabc@gmail.com</td>
                  </tr>
+<<<<<<< HEAD:views/teacher.hbs
+                 {{/if}}
+=======
                 {{/if}}
+>>>>>>> b41695a58fde8b90da7c77b034a321341df19f37:views/teacher.hbs
 
 
 
                 </table>	
 			
               </div>
-   <div class="col-xs-12" id="2" style="background-color:#a63650; text-align:center;display:none;"> 
-		 <h3 style="color:#fff; text-align:center;"><b> Add Attendence <b></h3><br>
+   <div class="col-xs-12" id="2" style="background-color:white; text-align:center;display:none; border: 1px solid;padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c;"> 
+		 <h3 style="color:#a63650; text-align:center;"><b> Add Attendence <b></h3><br>
 		 <form >
 		 <div class="form-group">
 		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
@@ -124,13 +128,39 @@
                 
 			
   </div>
-  <div class="col-xs-12" id="3" style="background-color:#a63650; text-align:center; display:none;">
-		 <h3 style="color:#fff; text-align:center;"><b> Add Assignment <b></h3><br>
+  <div class="col-xs-12" id="3" style="background-color:white; text-align:center; display:none; border: 1px solid;padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c;">
+		 <h3 style="color:#a63650; text-align:center;"><b> Add Assignment <b></h3><br>
 		 <form method="POST" action="/assignment" >
 		 <div class="form-group" > 
-		 <input type="text" class="form-control" id="assdept" placeholder="Department" name="department"><br>
-		 <input type="number" class="form-control" id="assyear" placeholder="Year" name="year"><br>
-         <input type="text" class="form-control" id="assbranch" placeholder="Branch" name="branch"><br>
+		 <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle"  id="assdept" type="button" data-toggle="dropdown" style="width:100%  ">Department
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Computer Science</a></li>
+    </ul>
+  </div><br>
+		
+		 
+		  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle"  id="assyear" type="button" data-toggle="dropdown" style="width:100%">Year
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">First</a></li>
+	  <li><a href="#">Second</a></li>
+	  <li><a href="#">Third</a></li>
+	  <li><a href="#">Fourth</a></li>
+    </ul>
+  </div><br>
+		 
+        
+		  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle"  id="assbranch" type="button" data-toggle="dropdown" style="width:100%">Shift
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Morning</a></li>
+	  <li><a href="#">Evening</a></li>
+    </ul>
+  </div><br>
          <input type="text" class="form-control" id="ques1" placeholder="Question 1" name="ques1"><br>
          <input type="text" class="form-control" id="ques2" placeholder="Question 2" name="ques2"><br>
          
@@ -155,8 +185,8 @@
                 
 			
   </div>
-  <div class="col-xs-12" id="4" style="background-color:#a63650; text-align:center; display:none;">
-		 <h3 style="color:#fff; text-align:center;"><b> Add Result<b></h3><br>
+  <div class="col-xs-12" id="4" style="background-color:white; text-align:center;display:none; border: 1px solid;padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c;">
+		 <h3 style="color:#a63650; text-align:center;"><b> Add Result<b></h3><br>
 		 <form>
 		 <div class="form-group">
 		 <input type="text" class="form-control" id="assdept" placeholder="Department"><br>
