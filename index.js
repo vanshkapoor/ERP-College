@@ -36,6 +36,7 @@ app.post('/signupStudent', (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
   var name = req.body.name;
+  var year = req.body.year;
   var phone = req.body.phone;
   var rollNo = req.body.rollNo;
   var branch = req.body.branch;
@@ -53,6 +54,7 @@ app.post('/signupStudent', (req, res) => {
             password: password,
             name: name,
             phone: phone,
+            year: year,
             rollNo: rollNo,
             branch: branch 
           })

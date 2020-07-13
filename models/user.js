@@ -19,6 +19,9 @@ var UserSchema = mongoose.Schema({
     phone: {//Added number
       type: Number    
     },
+    year : {
+      type: String
+    },
     rollNo : {
       type: Number
     },
