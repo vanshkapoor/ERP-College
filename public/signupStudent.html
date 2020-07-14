@@ -10,6 +10,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script>
+		
+$(document).ready(function() {
+$('.syear').materialSelect();
+});
+$(document).ready(function() {
+$('.sshift').materialSelect();
+});
+
+       
+    </script>
+
 </head>
 <body style=" background-image: linear-gradient(#5eb7b3, #9f93c4 , #c7cbcc);background-attachment: fixed; background-size: 100% 100%;">
 <div class="container">
@@ -21,7 +33,7 @@
   <div class="col-xs-6" style="padding-top:35px; padding-top:35px; ">
    <h2 style="color:#e16c82;"> Let's get started! </h2>
    <h3 style="color:#31b5c0;" ><b> Register your account</b> </h3> <br>
-    <div id="form" style="color:#685bb9;">
+    <div id="form" style="color:#685bb9; text-align:left;" >
             <form method="POST" action="/SignupStudent">
                 <div class="form-group">
                     <label>Name</label>
@@ -45,12 +57,21 @@
                     <input type="text" class="form-control" name="rollNo" value="" />
                 </div>
                 <div class="form-group">
-                    <label>Year</label>
-                    <input type="text" name="year" class="form-control">
+                    <select class="syear md-form" style="width:100%; height:26px; border-color:#e8dada;">
+     <option value="" disabled selected>Year</option>
+	  <option value="First">First</option>
+	   <option value="Second">Second</option>
+	    <option value="Third" id="assyear">Third</option>
+		 <option value="Fourth">Fourth</option>
+	  </select>
+  
                 </div>
                 <div class="form-group">
-                    <label>Shift</label>
-                    <input type="text" class="form-control" name="branch" value="" />
+                    <select class="sshift md-form" style="width:100%; height:26px; border-color:#e8dada;">
+     <option value="" disabled selected>Shift</option>
+	  <option value="Morning">Morning</option>
+	   <option value="Evening" id="assbranch">Evening</option>
+	  </select>
                 </div>
                 <div class="form-group">
                     <label>Phone number</label>

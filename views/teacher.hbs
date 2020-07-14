@@ -11,6 +11,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="css/teacherstyle.css">
+		 <script>
+		 $(document).ready(function() {
+$('.dept').materialSelect();
+});
+$(document).ready(function() {
+$('.year').materialSelect();
+});
+$(document).ready(function() {
+$('.shift').materialSelect();
+});
+
+       
+    </script>
     </head>
     <body>
 
@@ -126,35 +139,34 @@
 		 <h3 style="color:#a63650; text-align:center;"><b> Add Assignment <b></h3><br>
 		 <form method="POST" action="/assignment" >
 		 <div class="form-group" > 
-		 <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle"  id="assdept" type="button" data-toggle="dropdown" style="width:100%  ">Department
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Computer Science</a></li>
-    </ul>
-  </div><br>
+		 
+		 <select class="dept md-form" style="width:100%; height:34px; border-color:#e8dada;">
+     <option value="" disabled selected>Department</option>
+	  <option value="Computer Science" id="assdept">Computer Science</option>
+	  </select>
+    
+  <br><br>
 		
 		 
-		  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle"  id="assyear" type="button" data-toggle="dropdown" style="width:100%">Year
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">First</a></li>
-	  <li><a href="#">Second</a></li>
-	  <li><a href="#">Third</a></li>
-	  <li><a href="#">Fourth</a></li>
-    </ul>
-  </div><br>
+		  <select class="year md-form" style="width:100%; height:34px; border-color:#e8dada;">
+     <option value="" disabled selected>Year</option>
+	  <option value="First">First</option>
+	   <option value="Second">Second</option>
+	    <option value="Third" id="assyear">Third</option>
+		 <option value="Fourth">Fourth</option>
+	  </select>
+  <br><br>
 		 
+		 <select class="shift md-form" style="width:100%; height:34px; border-color:#e8dada;">
+     <option value="" disabled selected>Shift</option>
+	  <option value="Morning">Morning</option>
+	   <option value="Evening" id="assbranch">Evening</option>
+	  </select>
+   
+<br><br>
         
-		  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle"  id="assbranch" type="button" data-toggle="dropdown" style="width:100%">Shift
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Morning</a></li>
-	  <li><a href="#">Evening</a></li>
-    </ul>
-  </div><br>
+		  
+		  
          <input type="text" class="form-control" id="ques1" placeholder="Question 1" name="ques1"><br>
          <input type="text" class="form-control" id="ques2" placeholder="Question 2" name="ques2"><br>
          
