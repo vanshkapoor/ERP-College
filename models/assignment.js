@@ -3,14 +3,17 @@ var mongoose =  require('mongoose')
 var AssignmentSchema = mongoose.Schema({
     department:{
         type: String,
+        enum: ['Computer Science'],
         required:true,
     },
     year:{
-        type: Number,
+        type: String,
+        enum: ['First', 'Second', 'Third', 'Fourth'],
         required:true
     },
     branch:{
         type: String, //eve/morning
+        enum: ['Morning', 'Evening'],
         required:true
     },
     ques1:{
