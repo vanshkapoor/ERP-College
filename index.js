@@ -221,6 +221,7 @@ app.get('/stuProfile', (req,res)=>{
     user: req.user });
 })
 
+
 /*app.get("/assignments", (req,res) => {
   Assignment.find({}).then(data =>{
     console.log(data);
@@ -269,6 +270,7 @@ app.post('/assignment' , (req,res)=>{
   var ques2 = req.body.ques2;
 
   let obj={};
+  obj.faculty = req.user._id,
   obj.department = department,
   obj.year = year,
   obj.branch = branch,
@@ -289,7 +291,10 @@ app.post('/assignment' , (req,res)=>{
 })
 
 app.get('/assignSuccess',(req,res)=> {
-  Assignment.find(function(err, assignment) {
+  let check = {
+    faculty:req.user._id,
+  }
+  Assignment.find(check).then(assignment => {
     res.render('assignment',{
       assignments: assignment
     })
@@ -300,7 +305,7 @@ app.get('/assignSuccess',(req,res)=> {
 //   res.render('stuassign')
 // })
 
-app.get('/stuassign',(req,res)=> {
+app.get('/stuassign/fil',(req,res)=> {
   Assignment.find(function(err, assignment) {
     res.render('stuassign',{
       assignments: assignment
@@ -308,14 +313,22 @@ app.get('/stuassign',(req,res)=> {
   })  
 })
 
-app.get('/stuassign/filter/mor',(req,res) => {
-  Assignment.find({branch:'mor'}).then(assignment => {
+app.get('/stuassign',(req,res) => {
+  let check = {
+    branch:req.user.branch,
+    year:req.user.year
+  }
+  Assignment.find(check).then(assignment => {
     res.render('stuassign',{
       assignments:assignment
     })
   }).catch(err => {
     res.send({message:"Error while loading"})
   })
+})
+
+app.get('/user/check',(req,res) => {
+  return res.json({user: req.user})
 })
 
 // app.get('/assignStu',(req,res)=> {
@@ -327,8 +340,8 @@ app.get('/stuassign/filter/mor',(req,res) => {
 // })
 
 
-app.listen(6969,()=>{
-    console.log("Listening on 6969")
+app.listen(6968,()=>{
+    console.log("Listening on 6968")
 })
 
 

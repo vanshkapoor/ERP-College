@@ -1,6 +1,11 @@
 var mongoose =  require('mongoose')
+const Schema =  mongoose.Schema
 
-var AssignmentSchema = mongoose.Schema({
+var AssignmentSchema = new Schema({
+    faculty:{
+        type:Schema.Types.ObjectId,
+        ref:'Faculty'
+    },
     department:{
         type: String,
         enum: ['Computer Science'],
