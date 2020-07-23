@@ -5,24 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/teacherAssign.css">
 </head>
 <body>
-    <h1>Success</h1>
-    <br />
-    {{#each assignments}}
-    <p>Department: {{this.department}}</p>
-    <br>
-    <p> Year: {{this.year}}</p>
-    <br>
-    <p>Branch: {{this.branch}}</p>
-    <br>
-    <p>Question 1: {{this.ques1}}</p> <br>
-    <p>Question 2: {{this.ques2}}</p>
+    <div id="assign" style="background: #a63650">
+        <h1 style="color:white; text-align:center;">Success</h1>
+    </div>
 
-    {{/each}}
+    <div id="content">
+
+        <div id="main" style="background-color:white; color:grey; align-content:center; border: 1px solid; padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c">
+            <h3 style="color:#a63650; text-align:center" ><b>Assignments</b></h2>
+
+            <table class="table table-borderless" id="tables">
+                    {{#each assignments}}
+                    <tr>
+                        <td > Department: </td>
+                        <td>{{this.department}}</td>
+    
+                    </tr>
+                    <tr>
+                        <td>Year</td>
+                        <td> {{this.year}}</td>
+                    </tr>
+                    <tr>
+                        <td> Branch </td>
+                        <td>{{this.branch}}</td>
+                    </tr>
+                    <tr>
+                        <td> Question 1</td>
+                        <td>{{this.ques1}}</td>
+                    </tr>
+                    <tr>
+                        <td> Question 2</td>
+                        <td>{{this.ques2}}</td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                        <td><br></td>
+                    </tr>
+                    {{/each}}
+                </table>
 
 
-    {{!--{{#if obj}}
+        </div>    
+    </div>
+
+    {{!--
+    <div style="background-color:white; text-align:center;display:none;">
+        <br />
+        {{#each assignments}}
+        <p>Department: {{this.department}}</p>
+        <br>
+        <p> Year: {{this.year}}</p>
+        <br>
+        <p>Branch: {{this.branch}}</p>
+        <br>
+        <p>Question 1: {{this.ques1}}</p> <br>
+        <p>Question 2: {{this.ques2}}</p>
+    
+        {{/each}}
+
+    </div>
+    
+    
+        
+    
+
+    {{#if obj}}
     Question 1: {{obj.ques1}}
 
     {{else}}
