@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
         <link rel="stylesheet" href="css/teacherstyle.css">
+				<script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/driver.js/dist/driver.min.css">
 		 <script>
 		 $(document).ready(function() {
 $('.dept').materialSelect();
@@ -38,11 +40,11 @@ $('.shift').materialSelect();
                 </div>
 			
                <div class="btn-group-vertical">
-  <button type="button"  class="btn btn-outline-secondary" aria-pressed="true" onclick="tprofile()">Profile</button>
-  <button type="button" class="btn btn-outline-secondary" onclick="tattendence()">Add Attendence</button>
-  <button type="button" class="btn btn-outline-secondary" onclick="tassignment()">Add Assignment</button>
-  <button type="button" class="btn btn-outline-secondary" onclick="tresult()">Add Result</button>
-  <a href="/loginFac.html" class="btn btn-outline-secondary">
+  <button type="button"  class="btn btn-outline-secondary" id="first"  aria-pressed="true" onclick="tprofile()">Profile</button>
+  <button type="button" class="btn btn-outline-secondary" id="second" onclick="tattendence()">Add Attendence</button>
+  <button type="button" class="btn btn-outline-secondary" id="third" onclick="tassignment()">Add Assignment</button>
+  <button type="button" class="btn btn-outline-secondary" id="fourth" onclick="tresult()">Add Result</button>
+  <a href="/loginFac.html" class="btn btn-outline-secondary" id="fifth">
   Logout
   </a>
 </div>
@@ -229,5 +231,60 @@ $('.shift').materialSelect();
                  });
              });
          </script>
+		 <script>
+        const driver = new Driver();
+
+
+driver.defineSteps([
+  {
+    element: '#first',
+    popover: {
+      className: 'first-step-popover-class',
+      title: 'Click this to view profile',
+      description: 'You can view your profile here',
+      position: 'right'
+    }
+  },
+  {
+    element: '#sidebarCollapse',
+    popover: {
+      title: 'Click this to toggle the sidebar ',
+      position: 'right'
+    }
+  },
+  {
+    element: '#second',
+    popover: {
+      title: 'Click this to view your attendence',
+      position: 'right'
+    }
+  },
+  {
+    element: '#third',
+    popover: {
+      title: 'Click this to view your assignments ',
+      position: 'right'
+    }
+  },
+  {
+    element: '#fourth',
+    popover: {
+      title: 'Click this to view your result ',
+      position: 'right'
+    }
+  },
+  {
+    element: '#fifth',
+    popover: {
+      title: 'Click this to logout ',
+    
+      position: 'right'
+    }
+  },
+]);
+
+
+driver.start();
+</script>
     </body>
 </html>
