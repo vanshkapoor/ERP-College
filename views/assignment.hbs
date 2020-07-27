@@ -8,50 +8,55 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/teacherAssign.css">
 </head>
-<body>
+<body>    
     <div id="assign" style="background: #a63650">
-        <h1 style="color:white; text-align:center;">Success</h1>
-    </div>
-
-    <div id="content">
-
-        <div id="main" style="background-color:white; color:grey; align-content:center; border: 1px solid; padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c">
-            <h3 style="color:#a63650; text-align:center " ><b>Assignments</b></h2>
-
-            <table class="table table-borderless" id="tables">
-                    {{#each assignments}}
-                    <tr>
-                        <td > Department: </td>
-                        <td>{{this.department}}</td>
+            <h1 style="color:white; text-align:center;">Success</h1>
+        </div>
     
-                    </tr>
-                    <tr>
-                        <td>Year</td>
-                        <td> {{this.year}}</td>
-                    </tr>
-                    <tr>
-                        <td> Branch </td>
-                        <td>{{this.branch}}</td>
-                    </tr>
-                    <tr>
-                        <td> Question 1</td>
-                        <td>{{this.ques1}}</td>
-                    </tr>
-                    <tr>
-                        <td> Question 2</td>
-                        <td>{{this.ques2}}</td>
-                    </tr>
-                    <tr>
-                        <td><hr></td>
-                        <td><hr></td>
-                    </tr>
-                    
-                    {{/each}}
-                </table>
-
-
-        </div>    
-    </div>
+        <div id="content"> 
+    
+            <div class="col-xs-12"
+                style="background-color:white; color:grey; align-content:center; border: 1px solid; padding: 10px; box-shadow: 7px 7px 0px 0px #a636505c">
+                <h3 style="color:#a63650; text-align:center "><b>Assignments</b></h2>
+    
+                    <table class="table table-borderless" id="tables">
+                        {{#each assignments}}
+                        <tr>
+                            <td> Department: </td>
+                            <td>{{this.department}}</td>
+    
+                        </tr>
+                        <tr>
+                            <td>Year</td>
+                            <td> {{this.year}}</td>
+                        </tr>
+                        <tr>
+                            <td> Branch </td>
+                            <td>{{this.branch}}</td>
+                        </tr>
+                        <tr>
+                            <td> Question 1</td>
+                            <td>{{this.ques1}}</td>
+                        </tr>
+                        <tr>
+                            <td> Question 2</td>
+                            <td>{{this.ques2}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <hr>
+                            </td>
+                            <td>
+                                <hr>
+                            </td>
+                        </tr>
+    
+                        {{/each}}
+                    </table>
+    
+    
+            </div>
+        </div>
 
     {{!--
     <div style="background-color:white; text-align:center;display:none;">
