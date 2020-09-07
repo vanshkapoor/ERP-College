@@ -1,4 +1,5 @@
 const express = require("express");
+var exphbs = require("express-handlebars");
 const app = express();
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
@@ -24,7 +25,8 @@ db.once("open", function (callback) {
   console.log("connection succeeded");
 });
 
-app.set("view engine", "hbs");
+app.engine("handlebars", exphbs({ defaultLayout: "base" }));
+app.set("view engine", "handlebars");
 app.use(express.static("public"));
 //app.use(express.static(__dirname + '/public'))
 
@@ -342,5 +344,5 @@ app.get("/user/check", (req, res) => {
 // })
 
 app.listen(3000, () => {
-  console.log("Listening on 6968");
+  console.log("Listening on 3000");
 });

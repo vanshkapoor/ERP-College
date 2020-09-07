@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "5.1.0",
     "express-session": "^1.17.1",
     "hbs": "^4.1.1",
     "mongoose": "^5.9.18",
@@ -15,8 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

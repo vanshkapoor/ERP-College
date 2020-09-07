@@ -1,37 +1,42 @@
-const express = require('express')
-const app = express()
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
-const session = require('express-session')
+const express = require("express");
+var exphbs = require("express-handlebars");
+const app = express();
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const session = require("express-session");
 
-var User = require('./models/user')
-var Faculty = require('./models/faculty')
-var Assignment = require('./models/assignment')
+var User = require("./models/user");
+var Faculty = require("./models/faculty");
+var Assignment = require("./models/assignment");
 
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }));
 
-const mongoose = require('mongoose');  
-mongoose.connect('mongodb://localhost:27017/loginapp',{ 
-  useNewUrlParser: true,
-  useUnifiedTopology: true }); 
-var db=mongoose.connection; 
-db.on('error', console.log.bind(console, "connection error")); 
-db.once('open', function(callback){ 
-    console.log("connection succeeded");    
-})    
-
-
-app.set('view engine','hbs')
-app.use(express.static('public'));
+const mongoose = require("mongoose");
+mongoose.connect(
+  "mongodb+srv://internship:internship@cluster0.esmqs.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+var db = mongoose.connection;
+db.on("error", console.log.bind(console, "connection error"));
+db.once("open", function (callback) {
+  console.log("connection succeeded");
+});
+app.engine("handlebars", exphbs({ defaultLayout: "base" }));
+// app.set("view engine", "handlebars");
+app.set("view engine", "hbs");
+app.use(express.static("public"));
 //app.use(express.static(__dirname + '/public'))
 
-app.get('/',(req,res)=>{
-    res.render('landing')
-})
+app.get("/", (req, res) => {
+  res.render("landing");
+});
 
 //Student Signup
 
-app.post('/signupStudent', (req, res) => {
+app.post("/signupStudent", (req, res) => {
   var username = req.body.username;
   var email = req.body.email;
   var password = req.body.password;
@@ -41,186 +46,183 @@ app.post('/signupStudent', (req, res) => {
   var rollNo = req.body.rollNo;
   var branch = req.body.branch;
   {
-    User.findOne({ username: username })
-      .then(currentUser => {
-        if (currentUser) {
-          console.log('user is already registered:', currentUser);
-          res.redirect('/signupStudent.html')
-        }
-        else {
-          var newUser = new User({
-            username: username,
-            email: email,
-            password: password,
-            name: name,
-            phone: phone,
-            year: year,
-            rollNo: rollNo,
-            branch: branch 
-          })
-          newUser.save(function (err, user) {
-            if (err) throw err
-            console.log(user)
-          })
-          res.redirect('/login.html')
-        }
-
-      })
+    User.findOne({ username: username }).then((currentUser) => {
+      if (currentUser) {
+        console.log("user is already registered:", currentUser);
+        res.redirect("/signupStudent.html");
+      } else {
+        var newUser = new User({
+          username: username,
+          email: email,
+          password: password,
+          name: name,
+          phone: phone,
+          year: year,
+          rollNo: rollNo,
+          branch: branch,
+        });
+        newUser.save(function (err, user) {
+          if (err) throw err;
+          console.log(user);
+        });
+        res.redirect("/login.html");
+      }
+    });
   }
-
-})
+});
 
 //Student side authentication
 
-passport.use('user-local', new LocalStrategy(
-  function(username,password, done) {
-  User.findOne({
-    username: username
-  }, function (err, user) {
-    if (err) {
-      return done(err);
-    }
+passport.use(
+  "user-local",
+  new LocalStrategy(function (username, password, done) {
+    User.findOne(
+      {
+        username: username,
+      },
+      function (err, user) {
+        if (err) {
+          return done(err);
+        }
 
-    if (!user) {
-      return done(null, false, { message: 'User does not exist' });
-    }
+        if (!user) {
+          return done(null, false, { message: "User does not exist" });
+        }
 
-    if (user.password != password) {
-
-      return done(null, false, { message: 'Incorrect password' });
-    }
-    return done(null, user);
-  }); 
-  }
-));
+        if (user.password != password) {
+          return done(null, false, { message: "Incorrect password" });
+        }
+        return done(null, user);
+      }
+    );
+  })
+);
 
 //Faculty Signup
 
-app.post('/SignupFaculty',(req,res)=> {
-  var username = req.body.username; 
-  var email =req.body.email; 
-  var password = req.body.password;     
-  var name = req.body.name;    
+app.post("/SignupFaculty", (req, res) => {
+  var username = req.body.username;
+  var email = req.body.email;
+  var password = req.body.password;
+  var name = req.body.name;
   var phone = req.body.phone;
   var pId = req.body.pId;
   {
-    Faculty.findOne({username: username})
-    .then(currentFaculty => {
-      if (currentFaculty){
-        console.log('user is already registered:',currentFaculty);
-        res.redirect('/signupFaculty.html')
-      }
-      else {
+    Faculty.findOne({ username: username }).then((currentFaculty) => {
+      if (currentFaculty) {
+        console.log("user is already registered:", currentFaculty);
+        res.redirect("/signupFaculty.html");
+      } else {
         var newFaculty = new Faculty({
           username: username,
           email: email,
           password: password,
-          name: name,    
+          name: name,
           phone: phone,
-          pId: pId   
-        })
-        newFaculty.save(function(err,user) {
-          if (err) throw err
-          console.log(user)
-        })
-        res.redirect('/loginFac.html')
+          pId: pId,
+        });
+        newFaculty.save(function (err, user) {
+          if (err) throw err;
+          console.log(user);
+        });
+        res.redirect("/loginFac.html");
       }
-
-    })
+    });
   }
-
-})
-
+});
 
 //Faculty side authentication
 
-passport.use('faculty-local', new LocalStrategy(
-  function(username,password, done) {
-  Faculty.findOne({
-    username: username
-  }, function (err, user) {
-    if (err) {
-      return done(err);
-    }
+passport.use(
+  "faculty-local",
+  new LocalStrategy(function (username, password, done) {
+    Faculty.findOne(
+      {
+        username: username,
+      },
+      function (err, user) {
+        if (err) {
+          return done(err);
+        }
 
-    if (!user) {
-      return done(null, false, { message: 'User does not exist' });
-    }
+        if (!user) {
+          return done(null, false, { message: "User does not exist" });
+        }
 
-    if (user.password != password) {
+        if (user.password != password) {
+          return done(null, false, { message: "Incorrect password" });
+        }
+        return done(null, user);
+      }
+    );
+  })
+);
 
-      return done(null, false, { message: 'Incorrect password' });
-    }
-    return done(null, user);
-  }); 
-  }
-));
+app.use(
+  session({
+    secret: "secret",
+    saveUninitialized: true,
+    resave: true,
+  })
+);
 
-app.use(session({
-  secret: 'secret',
-  saveUninitialized: true,
-  resave: true
-}))  
-
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
 
 passport.serializeUser((user, done) => {
-  done(null, user.id)
-})
+  done(null, user.id);
+});
 
 passport.deserializeUser(function (id, done) {
   Faculty.findById(id, function (err, user) {
-    if(err) done (err);
-      if(user){
-        done(null,user);
-      } else{
-        User.findById(id,function (err,user){
-          if(err) done (err);
-          done(null, user);
-        })
-      }     
-  })
-})
-
+    if (err) done(err);
+    if (user) {
+      done(null, user);
+    } else {
+      User.findById(id, function (err, user) {
+        if (err) done(err);
+        done(null, user);
+      });
+    }
+  });
+});
 
 /*app.post('/login', passport.authenticate('user-local', {
   successRedirect: '/student.html',
   failureRedirect: '/signupStudent.html'
 }))*/
 
+app.post(
+  "/loginFaculty",
+  passport.authenticate("faculty-local", {
+    successRedirect: "/facProfile",
+    failureRedirect: "/signupFaculty.html",
+  }),
 
-app.post('/loginFaculty', passport.authenticate('faculty-local', {
-  successRedirect: '/facProfile',
-  failureRedirect: '/signupFaculty.html'}),
-
-  function(req,res) {
-    res.redirect('/facProfile')
+  function (req, res) {
+    res.redirect("/facProfile");
   }
-)
+);
 
-app.get('/facProfile', (req,res)=>{
-  res.render('teacher', 
-  { style: 'teacherstyle.css',
-    user: req.user });
-})
+app.get("/facProfile", (req, res) => {
+  res.render("teacher", { style: "teacherstyle.css", user: req.user });
+});
 
+app.post(
+  "/login",
+  passport.authenticate("user-local", {
+    successRedirect: "/stuProfile",
+    failureRedirect: "/signupStudent.html",
+  }),
 
-app.post('/login', passport.authenticate('user-local', {
-  successRedirect: '/stuProfile',
-  failureRedirect: '/signupStudent.html'}),
-
-  function(req,res) {
-    res.redirect('/stuProfile')
+  function (req, res) {
+    res.redirect("/stuProfile");
   }
-)
+);
 
-app.get('/stuProfile', (req,res)=>{
-  res.render('student', 
-  { style: 'studentstyle.css',
-    user: req.user });
-})
-
+app.get("/stuProfile", (req, res) => {
+  res.render("student", { style: "studentstyle.css", user: req.user });
+});
 
 /*app.get("/assignments", (req,res) => {
   Assignment.find({}).then(data =>{
@@ -242,109 +244,105 @@ app.get('/stuProfile', (req,res)=>{
 //   })
 // })
 
+app.post(
+  "/loginFaculty",
+  passport.authenticate("faculty-local", {
+    successRedirect: "/facProfile",
+    failureRedirect: "/signupFaculty.html",
+  }),
 
-
-
-app.post('/loginFaculty', passport.authenticate('faculty-local', {
-  successRedirect: '/facProfile',
-  failureRedirect: '/signupFaculty.html'}),
-
-  function(req,res) {
-    res.redirect('/facProfile')
+  function (req, res) {
+    res.redirect("/facProfile");
   }
-)
+);
 
-app.get('/facProfile', (req,res)=>{
-  res.render('teacher', 
-  { syle: 'teacherstyle.css',
-    user: req.user });
-})
+app.get("/facProfile", (req, res) => {
+  res.render("teacher", { syle: "teacherstyle.css", user: req.user });
+});
 
 // ASSIGNMENT POST ROUTE
 // route : /assignment
-app.post('/assignment' , (req,res)=>{
+app.post("/assignment", (req, res) => {
   var department = req.body.department;
   var year = req.body.year;
   var branch = req.body.branch;
   var ques1 = req.body.ques1;
   var ques2 = req.body.ques2;
 
-  let obj={};
-  obj.faculty = req.user._id,
-  obj.department = department,
-  obj.year = year,
-  obj.branch = branch,
-  obj.ques1 = ques1,
-  obj.ques2 = ques2
+  let obj = {};
+  (obj.faculty = req.user._id),
+    (obj.department = department),
+    (obj.year = year),
+    (obj.branch = branch),
+    (obj.ques1 = ques1),
+    (obj.ques2 = ques2);
 
   console.log(obj);
 
-  new Assignment(obj).save().then(data =>{
-    console.log(data);
-    // res.json({message:"success"});
-    res.redirect('/assignSuccess')
-  }).catch(error=>{
-    console.log("error")
-    // return res.json({message:"error"})
-  })
-
-})
-
-app.get('/assignSuccess',(req,res)=> {
-  let check = {
-    faculty:req.user._id,
-  }
-  Assignment.find(check).then(assignment => {
-    res.render('assignment',{
-      assignments: assignment
+  new Assignment(obj)
+    .save()
+    .then((data) => {
+      console.log(data);
+      // res.json({message:"success"});
+      res.redirect("/assignSuccess");
     })
-  })  
-})
+    .catch((error) => {
+      console.log("error");
+      // return res.json({message:"error"})
+    });
+});
+
+app.get("/assignSuccess", (req, res) => {
+  let check = {
+    faculty: req.user._id,
+  };
+  Assignment.find(check).then((assignment) => {
+    res.render("assignment", {
+      assignments: assignment,
+    });
+  });
+});
 
 // app.get('/stuassign',(req,res)=>{
 //   res.render('stuassign')
 // })
 
-app.get('/stuassign/fil',(req,res)=> {
-  Assignment.find(function(err, assignment) {
-    res.render('stuassign',{
-      assignments: assignment
-    })
-  })  
-})
+app.get("/stuassign/fil", (req, res) => {
+  Assignment.find(function (err, assignment) {
+    res.render("stuassign", {
+      assignments: assignment,
+    });
+  });
+});
 
-app.get('/stuassign',(req,res) => {
+app.get("/stuassign", (req, res) => {
   let check = {
-    branch:req.user.branch,
-    year:req.user.year
-  }
-  Assignment.find(check).then(assignment => {
-    res.render('stuassign',{
-      assignments:assignment
+    branch: req.user.branch,
+    year: req.user.year,
+  };
+  Assignment.find(check)
+    .then((assignment) => {
+      res.render("stuassign", {
+        assignments: assignment,
+      });
     })
-  }).catch(err => {
-    res.send({message:"Error while loading"})
-  })
-})
+    .catch((err) => {
+      res.send({ message: "Error while loading" });
+    });
+});
 
-app.get('/user/check',(req,res) => {
-  return res.json({user: req.user})
-})
+app.get("/user/check", (req, res) => {
+  return res.json({ user: req.user });
+});
 
 // app.get('/assignStu',(req,res)=> {
 //   Assignment.find(function(err, assignment) {
 //     res.render('assignment',{
 //       assignments: assignment
 //     })
-//   })  
+//   })
 // })
 
-
-app.listen(6968,()=>{
-    console.log("Listening on 6968")
-})
-
-
-
-
-
+app.listen(3000, () => {
+  console.log("Listening on 3000");
+});
