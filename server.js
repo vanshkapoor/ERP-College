@@ -341,6 +341,6 @@ app.get("/user/check", (req, res) => {
 //   })
 // })
 
-app.listen(6968, () => {
+app.listen(3000, () => {
   console.log("Listening on 6968");
 });
